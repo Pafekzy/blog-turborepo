@@ -4,8 +4,15 @@
   "description": "A full-stack blog platform built with Turborepo, NestJS, Prisma, and ShadCN UI. Supports both GraphQL and REST APIs, features secure auth with role-based access and Google OAuth. Designed for scalability, clean architecture, and modern UI/UX best practices.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint"
   },
+  "packageManager": "npm@10.8.1",
+  "workspaces"
+  : [
+    "apps/*"
+   ],
   "keywords": [],
   "author": "",
   "license": "ISC",
