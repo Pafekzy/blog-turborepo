@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
@@ -96,3 +97,10 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+=======
+# Blog Turborepo
+
+A full-stack blog platform built using **Turborepo**, **NestJS**, **Prisma**, and **ShadCN UI**.  
+It supports both **GraphQL** and **REST APIs**, featuring secure authentication with role-based access control and **Google OAuth** integration.  
+Designed for scalability, clean architecture, and modern UI/UX best practices.
+>>>>>>> Stashed changes
