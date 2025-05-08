@@ -20,6 +20,8 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   posts Post[]
+  comments Comment[]
+  likes Like[]
 }
 
 model Post {
@@ -28,14 +30,15 @@ model Post {
   title String
   content String
   thumbnail String?
-  publish Boolean
+  published Boolean
   authorId Int
   author User @relation(fields: [authorId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   comments Comment[]
 
-  tags Tag[] @relation("PostTag")
+  tags Tag[] @relation("PostTags")
+  likes Like[]
 }
 
 model Comment{
@@ -44,15 +47,21 @@ model Comment{
   postId Int
   post Post @relation(fields: [postId], references: [id])
   authorId Int
-  author User @relation(fields:[id])
+  author User @relation(fields: [authorId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Tag {
-  id Int @id @default (autoincrement)
-  name String @unique 
-  posts Post[]
+  id Int @id @default (autoincrement())
+  name String @unique
+  posts Post[] @relation("PostTags")
+}
 
-
+model Like {
+  id Int @id @default(autoincrement())
+  userId Int
+  postId Int
+  user User @relation(fields: [userId], references: [id])
+  post Post @relation(fields: [postId],references: [id])
 }
