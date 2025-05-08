@@ -19,5 +19,28 @@ model User {
   avatar String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  posts Post[]
 }
 
+model Post {
+  id Int @id @default(autoincrement())
+  slug String? @unique
+  title String
+  content String
+  thumbnail String?
+  publish Boolean
+  authorId Int
+  author User @relation(fields: [authorId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  comments Comment[]
+}
+
+model Comment{
+  id Int @id @default(autoincrement())
+  content String
+  postId Int
+  post Post @relation(fields: [postId], references: [id])
+  authorId Int
+  author User @relation(fields:[id])
+}
